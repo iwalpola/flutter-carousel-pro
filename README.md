@@ -12,7 +12,10 @@ Add the module to your project ``pubspec.yaml``:
 ...
 dependencies:
  ...
- carousel_pro: ^1.0.0
+ carousel_pro:
+    git:
+      url: https://github.com/iwalpola/flutter-carousel-pro.git
+      version: "2.0.0"
 ...
 ```
 And install it using ``flutter packages get`` on your project folder. After that, just import the module and use it:
