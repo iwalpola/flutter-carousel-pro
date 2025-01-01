@@ -37,7 +37,7 @@ class Carousel extends StatefulWidget {
   // The Color of each dot. Default is Colors.white
   final Color dotColor;
 
-  // The background Color of the dots. Default is [Colors.grey[800].withOpacity(0.5)]
+  // The background Color of the dots. Default is [Colors.grey[800].withValues(alpha :0.5)]
   final Color? dotBgColor;
 
   // The Color of each increased dot. Default is Colors.white
@@ -182,7 +182,7 @@ class CarouselState extends State<Carousel> {
                             : Radius.circular(8.0))
                         : null,
                     image: DecorationImage(
-                      //colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
+                      //colorFilter: ColorFilter.mode(Colors.black.withValues(alpha :0.2), BlendMode.dstATop),
                       image: netImage,
                       fit: widget.boxFit,
                     ),
@@ -197,12 +197,12 @@ class CarouselState extends State<Carousel> {
                               colors: [
                                 widget.overlayShadowColors != null
                                     ? widget.overlayShadowColors!
-                                        .withOpacity(1.0)
-                                    : Colors.grey[800]!.withOpacity(1.0),
+                                        .withValues(alpha :1.0)
+                                    : Colors.grey[800]!.withValues(alpha :1.0),
                                 widget.overlayShadowColors != null
                                     ? widget.overlayShadowColors!
-                                        .withOpacity(0.0)
-                                    : Colors.grey[800]!.withOpacity(0.0)
+                                        .withValues(alpha :0.0)
+                                    : Colors.grey[800]!.withValues(alpha :0.0)
                               ],
                             ),
                           ),
@@ -212,10 +212,10 @@ class CarouselState extends State<Carousel> {
               } else if (netImage is FadeInImage) {
                 return ClipRRect(
                   borderRadius: widget.borderRadius
-                      ? BorderRadius.all(widget.radius != null
+                      ? (BorderRadius.all(widget.radius != null
                           ? widget.radius!
-                          : Radius.circular(8.0))
-                      : null,
+                          : Radius.circular(8.0)))
+                      : BorderRadius.zero,
                   child: Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -224,11 +224,11 @@ class CarouselState extends State<Carousel> {
                           stops: [0.0, widget.overlayShadowSize],
                           colors: [
                             widget.overlayShadowColors != null
-                                ? widget.overlayShadowColors!.withOpacity(1.0)
-                                : Colors.grey[800]!.withOpacity(1.0),
+                                ? widget.overlayShadowColors!.withValues(alpha:  1.0)
+                                : Colors.grey[800]!.withValues(alpha :1.0),
                             widget.overlayShadowColors != null
-                                ? widget.overlayShadowColors!.withOpacity(0.0)
-                                : Colors.grey[800]!.withOpacity(0.0)
+                                ? widget.overlayShadowColors!.withValues(alpha :0.0)
+                                : Colors.grey[800]!.withValues(alpha :0.0)
                           ],
                         ),
                       ),
@@ -249,7 +249,7 @@ class CarouselState extends State<Carousel> {
                               : Radius.circular(8.0))
                           : null,
                       image: DecorationImage(
-                        //colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
+                        //colorFilter: ColorFilter.mode(Colors.black.withValues(alpha :0.2), BlendMode.dstATop),
                         image: widget.defaultImage,
                         fit: widget.boxFit,
                       ),
@@ -264,12 +264,12 @@ class CarouselState extends State<Carousel> {
                                 colors: [
                                   widget.overlayShadowColors != null
                                       ? widget.overlayShadowColors!
-                                          .withOpacity(1.0)
-                                      : Colors.grey[800]!.withOpacity(1.0),
+                                          .withValues(alpha :1.0)
+                                      : Colors.grey[800]!.withValues(alpha :1.0),
                                   widget.overlayShadowColors != null
                                       ? widget.overlayShadowColors!
-                                          .withOpacity(0.0)
-                                      : Colors.grey[800]!.withOpacity(0.0)
+                                          .withValues(alpha :0.0)
+                                      : Colors.grey[800]!.withValues(alpha :0.0)
                                 ],
                               ),
                             ),
@@ -344,7 +344,7 @@ class CarouselState extends State<Carousel> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: widget.dotBgColor == null
-                        ? Colors.grey[800]!.withOpacity(0.5)
+                        ? Colors.grey[800]!.withValues(alpha :0.5)
                         : widget.dotBgColor,
                     borderRadius: widget.borderRadius
                         ? (widget.noRadiusForIndicator
